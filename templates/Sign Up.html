@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Sign_Up.css">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Impact&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="gym-header">
+        <div class="logo-container">
+            <span class="logo-dih">DIH</span>
+            <h1 class="logo-gym">GYM</h1>
+        </div>
+    </header>
+
+    <main class="signup-container">
+
+        <form class="signup-form" id="signupForm">
+            <h2 class="form-section-title">SIGN UP</h2>
+
+            <div class="form-group">
+                <label for="lastname">LAST NAME</label>
+                <input type="text" id="lastname" name="lastname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="firstname">FIRST NAME</label>
+                <input type="text" id="firstname" name="firstname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">AGE</label>
+                <input type="number" id="age" name="age" class="format-mini-box" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="height">HEIGHT (cm)</label>
+                <input type="number" id="height" name="height" class="format-mini-box" placeholder="cm" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="weight">WEIGHT (kg)</label>
+                <input type="number" id="weight" name="weight" class="format-mini-box" placeholder="kg" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <span class="label-mock">GENDER</span>
+                <div class="radio-container">
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="male" required>
+                        <span class="custom-radio"></span>
+                        MALE
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="female" required>
+                        <span class="custom-radio"></span>
+                        FEMALE
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate">BIRTHDATE</label>
+                <input type="text" id="birthdate" name="birthdate" placeholder="YYYY/DD/MM" required onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">
+            </div>
+
+            <div class="form-group format-short-box">
+                <label for="phone">PHONE NUMBER</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+
+            <h2 class="form-section-title email-section-header">EMAIL</h2>
+
+            <div class="form-group format-medium-box">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group format-medium-box">
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group format-medium-box">
+                <label for="confirm-password">CONFIRM PASSWORD</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+
+            <div class="error-container">
+                <span id="errorMessage" class="error-text"></span>
+            </div>
+
+            <div class="form-actions">
+                <a href="Main%20Page.html" class="btn btn-cancel">CANCEL</a>
+                    <p class="signup-text">
+                        Dont have an account? <a href="SIgn%20In.html">Sign In</a>
+                    </p>
+                <button type="submit" class="btn btn-enter">ENTER</button>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            // Stop the form from submitting and refreshing automatically
+            event.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorElement = document.getElementById('errorMessage');
+
+            // Reset error message styling before processing checks
+            errorElement.style.display = "none";
+            errorElement.innerText = "";
+
+            // 1. Check for Missing Inputs (The 'required' HTML attribute handles most, but we check gender explicitly)
+            const genderSelected = document.querySelector('input[name="gender"]:checked');
+            if (!genderSelected) {
+                errorElement.innerText = "Please select your gender.";
+                errorElement.style.display = "block";
+                return;
+            }
+
+            // 2. Check if Password and Confirm Password fields match
+            if (password !== confirmPassword) {
+                errorElement.innerText = "Passwords do not match! Please try again.";
+                errorElement.style.display = "block";
+
+                // Highlight the confirm password box to guide user eyes
+                document.getElementById('confirm-password').style.borderColor = "#ff3b00";
+                return;
+            }
+
+            // Clear any old box alerts if passwords match now
+            document.getElementById('confirm-password').style.borderColor = "#000000";
+
+            // If everything passes layout rules successfully:
+            alert("Sign-up Successful!");
+            window.location.href = "Main Page.html"; // Redirect to your main landing or profile dashboard
+        });
+    </script>
+
+</body>
+</html>

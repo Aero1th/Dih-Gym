@@ -1,0 +1,312 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #c2c5c1; /* Matching image background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.gym-header {
+    background-color: #020266;
+    padding: 22px 0;
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-dih {
+    color: #ff3b00;
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.logo-gym {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 2.1rem;
+    letter-spacing: 4px;
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+/* Form Layout Container */
+.signup-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px 20px 60px 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.signup-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Keeps all form groups centered */
+    gap: 18px;
+}
+
+/* Section Headings */
+.form-section-title {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 1px;
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.email-section-header {
+    margin-top: 45px;
+}
+
+/* Form Groups - Adjusted to force shorter lengths */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the label and box group */
+    width: 100%;
+    max-width: 550px; /* Restricts the row width so long items align nicely */
+}
+
+/* Labels */
+.form-group label, .label-mock {
+    font-weight: 900;
+    font-size: 0.75rem;
+    color: #000000;
+    width: 160px; /* Fixed width for text alignment */
+    text-align: right;
+    padding-right: 25px;
+    letter-spacing: 0.5px;
+}
+
+/* UNIVERSAL SHORT INPUT BOXES */
+.form-group input {
+    flex: none; /* Disables stretching behavior */
+    width: 100%;
+    max-width: 320px; /* CRITICAL: Forces EVERY normal box to be short and compact */
+    height: 30px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 0 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    outline: none;
+}
+
+/* Center-aligned placeholder for Birthdate field */
+.form-group input::placeholder {
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Multi-column row wrapper for Age, Height, and Weight */
+.form-group-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 550px;
+    padding-left: 160px; /* Perfectly matches the offset of the row labels */
+    gap: 10px;
+}
+
+.sub-group {
+    max-width: none;
+    justify-content: flex-start;
+}
+
+/* Mini specific sizes for the metric data inputs */
+.age-group input {
+    max-width: 70px;
+}
+
+.metrics-group input {
+    max-width: 120px;
+}
+
+/* Override helper classes to maintain the universal tight layout */
+.format-short-box input,
+.format-medium-box input {
+    max-width: 320px;
+}
+
+/* Radio Buttons Layout */
+.radio-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 320px; /* Constrains selection area to match box margins */
+    gap: 30px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    font-size: 0.75rem;
+    color: #000000;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.radio-label input[type="radio"] {
+    display: none;
+}
+
+.custom-radio {
+    width: 26px;
+    height: 26px;
+    border: 3px solid #000000;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: inline-block;
+    position: relative;
+}
+
+.radio-label input[type="radio"]:checked + .custom-radio::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #000080;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Bottom Actions Layout */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    width: 100%;
+    max-width: 850px;
+    padding: 0 40px;
+}
+
+/* Pill Link Buttons */
+.btn {
+    background-color: #000080;
+    color: #ffffff;
+    border: none;
+    padding: 10px 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.85rem;
+    border-radius: 25px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: opacity 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.signup-text {
+    font-size: 0.85rem;
+    color: #333333;
+    font-weight: bold;
+}
+
+.signup-text a {
+    color: #0000b3;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* Mobile Configurations */
+@media (max-width: 768px) {
+    .form-group-row {
+        flex-direction: column;
+        padding-left: 0;
+        align-items: center;
+        gap: 18px;
+    }
+    .age-group input, .metrics-group input {
+        max-width: 320px;
+    }
+    .form-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    .form-group label, .label-mock {
+        text-align: center;
+        padding-right: 0;
+        width: 100%;
+    }
+    .radio-container {
+        justify-content: center;
+    }
+    .form-actions {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+    }
+
+/* Error Container Configurations */
+.error-container {
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.error-text {
+    display: none; /* Hidden by default until JavaScript turns it on */
+    color: #ff3b00; /* Vibrant red matching the DIH logo */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+    background-color: rgba(255, 59, 0, 0.1); /* Light transparent red banner padding */
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 1.5px solid #ff3b00;
+    width: 100%;
+    max-width: 320px; /* Perfectly matches the input widths */
+}
+
+/* Ensure the submit button acts exactly like your old anchor tags */
+button.btn-enter {
+    border: none;
+    outline: none;
+}
+}

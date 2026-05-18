@@ -1,0 +1,164 @@
+/* Base Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', sans-serif; /* Matches the bold, blocky heading style */
+}
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Gym Header Banner */
+.gym-header {
+    background-color: #020266;
+    padding: 15px 0;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: inline-block; /* Keeps the container structured properly */
+    cursor: pointer;       /* Changes the mouse cursor to a pointing hand on hover */
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-dih {
+    color: #ff3b00;
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.logo-gym {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 2.1rem;
+    letter-spacing: 4px;
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+.gym-header .logo span {
+    font-size: 0.8rem;
+}
+
+/* Container Layout */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 20px;
+}
+.hero-text h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+.hero-text p {
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+}
+.hero-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 30px; /* Smooth rounded corners matching your image */
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 40px 0;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 4rem;
+    margin-bottom: 30px;
+}
+
+/* Classes Grid Layout */
+.classes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 50px;
+}
+
+/* --- THE CLICKABLE CARD CONTAINER --- */
+.class-card {
+    text-decoration: none; /* Removes underline from text links */
+    color: inherit; /* Prevents text from turning blue like standard links */
+    display: block;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: transparent;
+    transition: all 0.3s ease; /* Smooth hover transition animation */
+    cursor: pointer;
+}
+
+.image-wrapper {
+    overflow: hidden;
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.class-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin: 15px 0 5px 0;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.card-content p {
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.4;
+}
+
+/* --- SYNCHRONIZED HOVER EFFECT --- */
+/* When the mouse hovers anywhere on the .class-card container,
+   both the image wrapper and the title text respond instantly together. */
+
+.class-card:hover {
+    background-color: #f4f6ff; /* Soft dynamic background highlight */
+    box-shadow: 0 10px 20px rgba(0, 27, 160, 0.15); /* Sleek subtle glow */
+}
+
+.class-card:hover .image-wrapper {
+    transform: scale(1.03); /* Subtle zoom effect on the image */
+}
+
+.class-card:hover .card-content h3 {
+    color: #001ba0; /* Turns the heading text blue dynamically */
+}

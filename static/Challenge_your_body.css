@@ -1,0 +1,312 @@
+/* Reset and Global Parameters */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    overflow-x: hidden;
+}
+
+/* Header UI Styles */
+.gym-header {
+    background-color: #020266;
+    padding: 15px 0;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: inline-block; /* Keeps the container structured properly */
+    cursor: pointer;       /* Changes the mouse cursor to a pointing hand on hover */
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-dih {
+    color: #ff3b00;
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.logo-gym {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 2.1rem;
+    letter-spacing: 4px;
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+/* Hero Section with Background image overlay */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+    /* Replace 'gym-hero.jpg' with your treadmill banner background image file */
+    background: url('Images/challenge_your_body.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25); /* Subtle dim layer to enhance bold white text */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+}
+
+.hero-sub {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.hero-main {
+    font-size: clamp(2.5rem, 6vw, 5.5rem); /* Dynamically resizes scale */
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+}
+
+.btn-join {
+    background-color: #00008c;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 12px 35px;
+    border-radius: 25px;
+    display: inline-block;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-join:hover {
+    background-color: #0000b3;
+    transform: scale(1.03);
+}
+
+/* Challenge Intro Text Styling */
+.intro-section {
+    max-width: 1100px;
+    margin: 60px auto 40px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.intro-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.highlight-blue {
+    color: #00008c;
+}
+
+.intro-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333333;
+    max-width: 950px;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+/* Session Schedule Horizontal Rows */
+.sessions-container {
+    max-width: 1200px;
+    margin: 40px auto 80px auto;
+    padding: 0 30px;
+}
+
+.sessions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 15fr);
+    gap: 30px;
+    border-top: 1px dashed #cccccc;
+    padding-top: 30px;
+}
+
+.session-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.session-num {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.session-num .ordinal {
+    font-size: 0.85rem;
+    position: relative;
+    top: -4px;
+}
+
+.session-list {
+    list-style-type: none;
+}
+
+.session-list li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444444;
+    font-weight: 600;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Custom left bullet alignment markers */
+.session-list li::before {
+    content: "•";
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/* Highlights Section Split Panel Layout */
+.highlights-section {
+    background-color: #ffffff;
+    padding: 20px 0 80px 0;
+    width: 100%;
+}
+
+.highlights-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 40px;
+    gap: 50px;
+}
+
+.highlights-content {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+}
+
+.highlights-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    line-height: 0.95;
+    letter-spacing: -1px;
+    color: #000000;
+    margin-bottom: 45px;
+}
+
+.feature-item {
+    margin-bottom: 25px;
+    max-width: 520px;
+}
+
+.feature-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #111111;
+    font-weight: 500;
+}
+
+/* Image framing box with smooth curves */
+.highlights-image-box {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.side-img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    border-radius: 40px; /* Gives the perfect curved edge profile seen in screenshot */
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Responsive breakpoint scaling layouts for tablets and mobile viewports */
+@media (max-width: 992px) {
+    .sessions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .highlights-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .highlights-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .highlights-heading {
+        line-height: 1.1;
+    }
+
+    .feature-item {
+        max-width: 100%;
+    }
+
+    .highlights-image-box {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-banner {
+        padding-left: 5%;
+        height: 60vh;
+    }
+
+    .sessions-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .intro-text {
+        text-align: justify;
+    }
+}
