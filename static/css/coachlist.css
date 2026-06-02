@@ -1,0 +1,154 @@
+/* Reset & Core Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', Impact, sans-serif;
+}
+
+body {
+    background-color: #BDC2C0; /* Solid mid-gray color from image_9da7da.png */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Deep Royal Blue Header Bar */
+.brand-header {
+    background-color: #00137F; 
+    text-align: center;
+    padding: 18px 0;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.brand-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+}
+
+.logo-red {
+    color: #FF1E1E; 
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.logo-white {
+    color: #FFFFFF;
+    font-size: 24px;
+    letter-spacing: 4px;
+}
+
+/* Inner Page Container Frame */
+.page-container {
+    background-color: #D1D5D4; 
+    margin: 25px;
+    padding: 40px;
+    border-radius: 12px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Large Aggressive Page Title */
+.page-title {
+    font-size: 52px;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+}
+
+/* Table Layout Container */
+.table-container {
+    width: 100%;
+    max-width: 1100px;
+    background-color: #FFFFFF;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Table Element Styling */
+.coach-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Dark Teal-Blue Header Cells */
+.coach-table th {
+    background-color: #043852; 
+    color: #FFFFFF;
+    font-size: 14px;
+    padding: 18px 24px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-right: 1px solid #032b40;
+}
+
+.coach-table th:last-child {
+    border-right: none;
+}
+
+/* Body Row Configurations */
+.coach-table td {
+    padding: 18px 24px;
+    border-bottom: 1px solid #D1D5DB;
+    border-right: 1px solid #E5E7EB;
+    color: #444444;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.coach-table td:last-child {
+    border-right: none;
+}
+
+.coach-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Alternate Row Shading */
+.coach-table tbody tr:nth-child(even) {
+    background-color: #F8FAFC;
+}
+
+/* Hover Row Highlight */
+.coach-table tbody tr:hover {
+    background-color: #F1F5F9;
+}
+
+.coach-name {
+    color: #8A6D3B; 
+}
+
+.rate-amount {
+    color: #2C3E50;
+}
+
+/* Responsive Table Design Handling */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 36px;
+    }
+    
+    .page-container {
+        padding: 20px 10px;
+        margin: 10px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .coach-table th, .coach-table td {
+        padding: 14px 16px;
+        font-size: 13px;
+    }
+}

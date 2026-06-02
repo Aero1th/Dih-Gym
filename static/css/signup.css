@@ -1,0 +1,232 @@
+/* Reset & Core Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', Impact, sans-serif;
+}
+
+body {
+    background-color: #111116;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Formally blocks page scrollbars */
+}
+
+/* Deep Royal Blue Header Bar */
+.brand-header {
+    background-color: #00137F; 
+    text-align: center;
+    padding: 10px 0; /* Slightly tighter padding */
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.brand-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+}
+
+.logo-red {
+    color: #FF1E1E; 
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.logo-white {
+    color: #FFFFFF;
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+/* Gray Page Frame Container scaled to match the viewport window */
+.page-container {
+    background-color: #C2C5C4; 
+    margin: 15px;
+    padding: 20px 40px;
+    border-radius: 12px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures frame contents do not stretch container */
+}
+
+.signup-form {
+    width: 100%;
+    max-width: 1100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Two column split dynamically saves critical vertical spacing */
+.form-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+    margin-top: 10px;
+}
+
+.form-section {
+    width: 100%;
+}
+
+/* Aggressive Header Text Styling */
+.section-title {
+    font-size: 28px; /* Optimized sizing to fit screen */
+    color: #000000;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+/* Layout Rows */
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Tight, compact spacing */
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 160px 1fr; 
+    align-items: center;
+}
+
+/* Form Labels */
+.form-row label, .label-mock {
+    font-size: 14px;
+    color: #000000;
+    text-align: right;
+    padding-right: 15px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* Big Input Bubbles (Maintains big bubble vibe but stays layout-friendly) */
+.form-row input[type="text"],
+.form-row input[type="number"],
+.form-row input[type="email"],
+.form-row input[type="tel"],
+.form-row input[type="password"] {
+    width: 100%;
+    padding: 8px 20px; 
+    font-size: 16px; 
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    border: 3px solid #000000; 
+    border-radius: 30px; 
+    color: #000000;
+    outline: none;
+}
+
+/* Input Specific Width Constraints */
+.short-input input {
+    max-width: 100px;
+}
+
+.medium-input input {
+    max-width: 240px;
+}
+
+/* Custom Styled Radio Buttons */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px !important;
+    user-select: none;
+}
+
+.radio-label input {
+    position: absolute;
+    opacity: 0;
+}
+
+.custom-radio {
+    height: 22px;
+    width: 22px;
+    background-color: #fff;
+    border: 3px solid #000000;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: inline-block;
+    position: relative;
+}
+
+.radio-label input:checked ~ .custom-radio::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #000000;
+}
+
+/* Footer Control Elements */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+/* Pill Action Buttons from image corners */
+.btn-action {
+    background-color: #00068B; 
+    color: #FFFFFF;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    min-width: 160px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+.btn-action:hover {
+    background-color: #00137F;
+    transform: scale(1.02);
+}
+
+/* Fallback handling for smaller monitors/laptops */
+@media (max-width: 850px) {
+    body {
+        overflow-y: auto; /* Restores scrolling safely if screen gets too cramped on mobile devices */
+    }
+    .page-container {
+        overflow: visible;
+        padding: 20px;
+    }
+    .form-columns {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+    .form-row label, .label-mock {
+        text-align: left;
+    }
+}

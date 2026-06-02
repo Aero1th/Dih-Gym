@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIH GYM - Sign Up</title>
+    <link rel="stylesheet" href="C:\Users\ER0319\OneDrive\Documents\GitHub\Dih Gym\static\css\signup.css">
+</head>
+<body>
+
+    <header class="brand-header">
+        <div class="brand-logo">
+            <span class="logo-red">DIH</span>
+            <span class="logo-white">GYM</span>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <form class="signup-form" action="#" method="POST">
+            
+            <div class="form-columns">
+                <section class="form-section">
+                    <h1 class="section-title">SIGN UP</h1>
+                    
+                    <div class="form-grid">
+                        <div class="form-row">
+                            <label for="last-name">LAST NAME</label>
+                            <input type="text" id="last-name" name="last_name" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="first-name">FIRST NAME</label>
+                            <input type="text" id="first-name" name="first_name" required>
+                        </div>
+
+                        <div class="form-row short-input">
+                            <label for="age">AGE</label>
+                            <input type="number" id="age" name="age" min="1" required>
+                        </div>
+
+                        <div class="form-row">
+                            <span class="label-mock">GENDER</span>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="male" required>
+                                    <span class="custom-radio"></span> MALE
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="female">
+                                    <span class="custom-radio"></span> FEMALE
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-row medium-input">
+                            <label for="birthdate">BIRTHDATE</label>
+                            <input type="text" id="birthdate" name="birthdate" placeholder="YYYY/DD/MM" required>
+                        </div>
+
+                        <div class="form-row medium-input">
+                            <label for="phone">PHONE NUMBER</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2 class="section-title">EMAIL</h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-row">
+                            <label for="email">EMAIL</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="password">PASSWORD</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="confirm-password">CONFIRM PASSWORD</label>
+                            <input type="password" id="confirm-password" name="confirm_password" required>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="form-actions">
+                <a href="membership.html" class="btn-action btn-cancel">CANCEL</a>
+                <button type="submit" class="btn-action btn-enter">ENTER</button>
+            </div>
+
+        </form>
+    </main>
+
+</body>
+</html>
