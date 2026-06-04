@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIH Gym - Classes</title>
-    <link rel="stylesheet" href="your_goal.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/your_goal.css') }}">
 </head>
 <body>
 
     <!-- Header Section -->
     <header class="gym-header">
-        <a href="Main%20Page.html" class="logo-link">
+        <a href="/" class="logo-link">
             <div class="logo-container">
                 <span class="logo-dih">DIH</span>
                 <h1 class="logo-gym">GYM</h1>
@@ -26,7 +26,7 @@
                 <p>Choose your goal and improve yourself by experiencing limitless class offer</p>
             </div>
             <div class="hero-image">
-                <img src="Images/choose_your_goal.jpg" alt="Gym Trainers">
+                <img src="{{ url_for('static', filename='images/choose_your_goal.jpg') }}" alt="Gym Trainers">
             </div>
         </section>
 
@@ -41,7 +41,7 @@
                 <!-- 1. Flow Yoga -->
                 <a href="#" class="class-card">
                     <div class="image-wrapper">
-                        <img src="Images/yoga.jpg" alt="Flow Yoga Class">
+                        <img src="{{ url_for('static', filename='images/yoga.jpg') }}" alt="Flow Yoga Class">
                     </div>
                     <div class="card-content">
                         <h3>FLOW YOGA</h3>
@@ -52,7 +52,7 @@
                 <!-- 2. Core -->
                 <a href="#" class="class-card">
                     <div class="image-wrapper">
-                        <img src="Images/core.jpg" alt="Core Class">
+                        <img src="{{ url_for('static', filename='images/core.jpg') }}" alt="Core Class">
                     </div>
                     <div class="card-content">
                         <h3>CORE</h3>
@@ -63,7 +63,7 @@
                 <!-- 3. Cardio Dance -->
                 <a href="#" class="class-card">
                     <div class="image-wrapper">
-                        <img src="Images/cardio%20dance.jpg" alt="Cardio Dance Class">
+                        <img src="{{ url_for('static', filename='images/cardio dance.jpg') }}" alt="Cardio Dance Class">
                     </div>
                     <div class="card-content">
                         <h3>CARDIO DANCE</h3>
@@ -74,7 +74,7 @@
                 <!-- 4. Full-Body Toning -->
                 <a href="#" class="class-card">
                     <div class="image-wrapper">
-                        <img src="Images/endurance.jpg" alt="Full-Body Toning & Endurance Class">
+                        <img src="{{ url_for('static', filename='images/endurance.jpg') }}" alt="Full-Body Toning & Endurance Class">
                     </div>
                     <div class="card-content">
                         <h3>FULL-BODY TONING & ENDURANCE</h3>

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Challenge_your_body.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Challenge_your_body.css') }}">
     <title>Body Challenge</title>
     <link href="https://fonts.googleapis.com/css2?family=Impact&family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
    <header class="gym-header">
-        <a href="Main%20Page.html" class="logo-link">
+        <a href="/" class="logo-link">
             <div class="logo-container">
                 <span class="logo-dih">DIH</span>
                 <h1 class="logo-gym">GYM</h1>
@@ -22,7 +22,7 @@
         <div class="hero-content">
             <h3 class="hero-sub">BODY CHALLENGE</h3>
             <h2 class="hero-main">JOURNEY TO<br>A BETTER<br>STRONGER<br>YOU</h2>
-            <a href="Sign%20Up.html" class="btn-join">JOIN THE CHALLENGE</a>
+            <a href="/signup" class="btn-join">JOIN THE CHALLENGE</a>
         </div>
     </section>
 
@@ -87,7 +87,7 @@
             </div>
 
             <div class="highlights-image-box">
-                <img src="Images/challenge%20page.jpg" alt="Gym Treadmill Workout Run" class="side-img">
+                <img src="{{ url_for('static', filename='images/challenge page.jpg') }}" alt="Gym Treadmill Workout Run" class="side-img">
             </div>
         </div>
     </section>

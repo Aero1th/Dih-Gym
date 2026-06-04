@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIH GYM - Staff</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/memberlist.css') }}">
+</head>
+<body>
+    <header class="brand-header">
+        <div class="brand-logo">
+            <span class="logo-red">DIH</span>
+            <span class="logo-white">GYM</span>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <h1 class="page-title">Staff List</h1>
+        <div class="table-container">
+            <table class="member-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Position</th>
+                        <th>Salary</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in staff %}
+                    <tr>
+                        <td>{{ item.staff_id }}</td>
+                        <td>{{ item.first_name }} {{ item.last_name }}</td>
+                        <td>{{ item.email }}</td>
+                        <td>{{ item.position }}</td>
+                        <td>{{ item.salary }}</td>
+                        <td><a href="/delete-staff/{{ item.staff_id }}">Delete</a></td>
+                    </tr>
+                    {% else %}
+                    <tr><td colspan="6">No staff found.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/admin-dashboard">Back to Dashboard</a></p>
+    </main>
+</body>
+</html>

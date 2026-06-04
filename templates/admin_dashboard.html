@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIH GYM - Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/memberlist.css') }}">
+</head>
+<body>
+    <header class="brand-header">
+        <div class="brand-logo">
+            <span class="logo-red">DIH</span>
+            <span class="logo-white">GYM</span>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <h1 class="page-title">Admin Dashboard</h1>
+
+        <div class="table-container">
+            <table class="member-table">
+                <tbody>
+                    <tr>
+                        <th>Total Members</th>
+                        <td>{{ total_members.total_members }}</td>
+                    </tr>
+                    <tr>
+                        <th>Total Staff</th>
+                        <td>{{ total_staff.total_staff }}</td>
+                    </tr>
+                    <tr>
+                        <th>Total Coach Bookings</th>
+                        <td>{{ total_bookings.total_bookings }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            <a href="/members-list">Members</a> |
+            <a href="/staff-list">Staff</a> |
+            <a href="/coach-bookings">Coach Bookings</a> |
+            <a href="/view-memberships">Memberships</a> |
+            <a href="/admin-logout">Logout</a>
+        </p>
+    </main>
+</body>
+</html>

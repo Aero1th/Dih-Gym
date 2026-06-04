@@ -7,7 +7,15 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/')
 def frontpage():
-    return render_template('frontpage.html')
+    return render_template('Main Page.html')
+
+@auth.route('/benefits')
+def benefits():
+    return render_template('Challenge your body page.html')
+
+@auth.route('/goals')
+def goals():
+    return render_template('Choose your goal page.html')
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -66,7 +74,7 @@ def login():
 
             return redirect('/dashboard')
 
-    return render_template('login.html')
+    return render_template('SIgn In.html')
 
 @auth.route('/logout')
 def logout():

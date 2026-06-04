@@ -17,7 +17,6 @@
         </div>
     </header>
 
-    <!-- Main Content Frame -->
     <main class="page-container">
         
         <h1 class="page-title">Hire a Coach</h1>
@@ -35,19 +34,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- BACK-END ENGINE INSERTION POINT -->
-                    <!-- Loop your database items here to generate rows dynamically -->
-                    <!-- Example structure for your backend loop:
+                    {% for coach in coaches %}
                     <tr>
-                        <td>[Type of Trainer]</td>
-                        <td class="coach-name">[Coach Name]</td>
-                        <td class="rate-amount">[Rate Amount]</td>
-                        <td>[Open Hours]</td>
+                        <td>{{ coach.specialization or 'General Trainer' }}</td>
+                        <td class="coach-name">{{ coach.first_name }} {{ coach.last_name }}</td>
+                        <td class="rate-amount">{{ coach.hourly_rate }}</td>
+                        <td>By appointment</td>
                         <td class="center-col">
-                            <button class="btn-hire" onclick="hireCoach('[Coach_ID]')">HIRE COACH</button>
+                            <form action="/book-session" method="POST">
+                                <input type="hidden" name="coach_id" value="{{ coach.coach_id }}">
+                                <input type="date" name="session_date" required>
+                                <input type="time" name="session_time" required>
+                                <button type="submit" class="btn-hire">HIRE COACH</button>
+                            </form>
                         </td>
                     </tr>
-                    -->
+                    {% else %}
+                    <tr>
+                        <td colspan="5">No coaches available.</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

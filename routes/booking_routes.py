@@ -25,7 +25,7 @@ def book_coach_page():
     coaches = cursor.fetchall()
 
     return render_template(
-        'coach_booking.html',
+        'member_coachlist.html',
         coaches=coaches
     )
 
@@ -56,3 +56,8 @@ def book_session():
         session_date,
         session_time
     )
+
+    cursor.execute(sql, values)
+    connection.commit()
+
+    return redirect('/dashboard')

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIH GYM - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/memberlist.css') }}">
+</head>
+<body>
+    <header class="brand-header">
+        <div class="brand-logo">
+            <span class="logo-red">DIH</span>
+            <span class="logo-white">GYM</span>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <h1 class="page-title">Member Dashboard</h1>
+
+        <div class="table-container">
+            <table class="member-table">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ user.first_name if user else 'Member' }} {{ user.last_name if user else '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ user.email if user else 'Not available' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Membership</th>
+                        <td>
+                            {% if subscription %}
+                                {{ subscription.plan_name }} - {{ subscription.status }}
+                            {% else %}
+                                No active membership
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>End Date</th>
+                        <td>{{ subscription.end_date if subscription else 'Not available' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            <a href="/memberships">View Memberships</a> |
+            <a href="/book-coach">Book Coach</a> |
+            <a href="/logout">Logout</a>
+        </p>
+    </main>
+</body>
+</html>

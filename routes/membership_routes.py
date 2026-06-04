@@ -13,7 +13,7 @@ def memberships_page():
     memberships = cursor.fetchall()
 
     return render_template(
-        'memberships.html',
+        'membership.html',
         memberships=memberships
     )
 @membership.route('/subscribe/<int:membership_id>')
