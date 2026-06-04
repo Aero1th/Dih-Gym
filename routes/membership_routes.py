@@ -16,6 +16,9 @@ def memberships_page():
         'memberships.html',
         memberships=memberships
     )
+@membership.route('/benefits')
+def benefits_page():
+    return render_template('benefits.html')
 @membership.route('/subscribe/<int:membership_id>')
 def subscribe(membership_id):
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Booking</title>
+    <style>
+        .coach { border:1px solid #ddd; padding:10px; margin:8px 0 }
+    </style>
+</head>
+<body>
+    <h1>Coach Booking</h1>
+    {% if coaches %}
+        {% for c in coaches %}
+            <div class="coach">
+                <h3>{{ c.first_name }} {{ c.last_name }}</h3>
+                <p>Specialization: {{ c.specialization or 'General' }}</p>
+                <p>Rate: ₱{{ '%.2f'|format(c.hourly_rate) }}</p>
+
+                <form action="/book-session" method="POST">
+                    <input type="hidden" name="coach_id" value="{{ c.coach_id }}">
+                    <label>Date: <input type="date" name="session_date" required></label>
+                    <label>Time: <input type="time" name="session_time" required></label>
+                    <button type="submit">Book Session</button>
+                </form>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No coaches available right now.</p>
+    {% endif %}
+    <a href="/">Back to home</a>
+</body>
+</html>

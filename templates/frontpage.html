@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Main_Page_Style.css') }}">
+    <title>DIH GYM - Be Stronger Than Your Excuses</title>
+</head>
+<body>
+<header>
+    <div class="top-header">
+        <div class="logo-area">
+            <h1 class="logo-text">
+                <span class="brand-red">DIH</span>
+                <span class="brand-white">GYM</span>
+            </h1>
+        </div>
+        <div class="profile-icon">
+            <a href="/login">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+    <nav class="second_header">
+        <ul class="nav-links">
+            <li><a href="/memberships">MEMBERSHIP</a></li>
+            <li><a href="/benefits">BENEFITS</a></li>
+            <li><a href="/book-coach">COACHES</a></li>
+        </ul>
+        <div class="join-now">
+            <a href="/signup">JOIN NOW!</a>
+        </div>
+    </nav>
+</header>
+<section class="main-section">
+    <div class="main-content">
+        <h2 class="main-title">
+            BE<br>
+            STRONGER<br>
+            THAN<br>
+            YOUR EXCUSES
+        </h2>
+        <a href="/signup" class="cta-button">START YOUR JOURNEY!</a>
+    </div>
+</section>
+<section class="features-section">
+    <div class="features-grid">
+        <a href="/memberships" class="feature-card">
+            <div class="card-bg" style="background-image: url('{{ url_for('static', filename='images/fitness_membership.jpg') }}');"></div>
+            <h3>FITNESS<br>MEMBERSHIP</h3>
+        </a>
+        <a href="/benefits" class="feature-card">
+            <div class="card-bg" style="background-image: url('{{ url_for('static', filename='images/challenge_your_body.jpg') }}');"></div>
+            <h3>CHALLENGE<br>YOUR BODY</h3>
+        </a>
+        <a href="/memberships" class="feature-card">
+            <div class="card-bg" style="background-image: url('{{ url_for('static', filename='images/choose_your_goal.jpg') }}');"></div>
+            <h3>CHOOSE YOUR<br>GOAL</h3>
+        </a>
+    </div>
+    <div class="branches-container">
+        <h2 class="branches-title"><span class="brand-red">DIH</span> GYM BRANCHES</h2>
+        <div class="branches-grid">
+            <div class="branch-item">
+                <div class="branch-name"><span class="pin-icon">📍</span> SM CITY BICUTAN</div>
+                <p class="branch-address">SM City Bicutan, Dona Soledad Ave., Brgy. Don Bosco, Parañaque, Metro Manila</p>
+            </div>
+            <div class="branch-item">
+                <div class="branch-name"><span class="pin-icon">📍</span> SM MEGAMALL</div>
+                <p class="branch-address">2nd Floor SM Megamall, Ortigas Center, Mandaluyong City, Metro Manila</p>
+            </div>
+            <div class="branch-item">
+                <div class="branch-name"><span class="pin-icon">📍</span> SM CITY MANILA</div>
+                <p class="branch-address">4th Floor SM City Manila, San Marcelino St., Ermita, Metro Manila</p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

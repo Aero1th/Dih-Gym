@@ -1,4 +1,8 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask
+
+load_dotenv()
 
 from routes.auth_routes import auth
 from routes.membership_routes import membership
@@ -8,7 +12,8 @@ from routes.admin_routes import admin
 
 app = Flask(__name__)
 
-app.secret_key = 'supersecretkey'
+# Use SECRET_KEY from environment when available
+app.secret_key = os.environ.get('SECRET_KEY', 'supersecretkey')
 
 app.register_blueprint(auth)
 app.register_blueprint(membership)

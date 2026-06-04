@@ -56,3 +56,7 @@ def book_session():
         session_date,
         session_time
     )
+    cursor.execute(sql, values)
+    connection.commit()
+
+    return redirect('/book-coach')

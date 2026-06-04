@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/membership.css') }}">
+    <title>Memberships</title>
+    <style>
+        .plan { border:1px solid #ccc; padding:12px; margin:8px 0; }
+        .plan h3 { margin:0 0 8px 0 }
+    </style>
+</head>
+<body>
+    <h1>Membership Plans</h1>
+    {% if memberships %}
+        {% for m in memberships %}
+            <div class="plan">
+                <h3>{{ m.plan_name }} - ₱{{ '%.2f'|format(m.price) }}</h3>
+                <p>{{ m.description }}</p>
+                <p>Duration: {{ m.duration_days }} days</p>
+                <a href="/subscribe/{{ m.membership_id }}">Subscribe</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No membership plans available.</p>
+    {% endif %}
+    <a href="/">Back to home</a>
+</body>
+</html>

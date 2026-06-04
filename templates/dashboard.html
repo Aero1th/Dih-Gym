@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Main_Page_Style.css') }}">
+    <title>User Dashboard</title>
+</head>
+<body>
+<header>
+    <div class="top-header">
+        <div class="logo-area">
+            <h1 class="logo-text"><span class="brand-red">DIH</span> <span class="brand-white">GYM</span></h1>
+        </div>
+        <div class="profile-icon">
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+</header>
+<main class="main-section">
+    <div class="main-content">
+        <h1>Welcome, {{ user.first_name }}!</h1>
+        <p>Your membership information is listed below.</p>
+        {% if subscription %}
+            <div class="dashboard-card">
+                <h2>Current Plan: {{ subscription.plan_name }}</h2>
+                <p>Start Date: {{ subscription.start_date }}</p>
+                <p>End Date: {{ subscription.end_date }}</p>
+                <p>Status: {{ subscription.status }}</p>
+            </div>
+        {% else %}
+            <p>You do not have an active membership. <a href="/memberships">Browse membership plans</a>.</p>
+        {% endif %}
+        <nav class="features-grid">
+            <a href="/memberships" class="feature-card">Memberships</a>
+            <a href="/book-coach" class="feature-card">Book a Coach</a>
+            <a href="/" class="feature-card">Home</a>
+        </nav>
+    </div>
+</main>
+</body>
+</html>
