@@ -8,10 +8,9 @@
 
 body {
     background-color: #111116;
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Formally blocks page scrollbars */
+    min-height: 100vh;
 }
 
 /* Deep Royal Blue Header Bar */
@@ -21,6 +20,7 @@ body {
     padding: 10px 0; /* Slightly tighter padding */
     width: 100%;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
 }
 
 .brand-logo {
@@ -42,7 +42,7 @@ body {
     letter-spacing: 4px;
 }
 
-/* Gray Page Frame Container scaled to match the viewport window */
+/* Gray Page Frame Container with scrolling enabled */
 .page-container {
     background-color: #C2C5C4; 
     margin: 15px;
@@ -51,8 +51,9 @@ body {
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Ensures frame contents do not stretch container */
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .signup-form {

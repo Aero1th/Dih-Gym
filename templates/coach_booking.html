@@ -3,31 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coach Booking</title>
+    <title>Book a Coach - DIH GYM</title>
     <style>
-        .coach { border:1px solid #ddd; padding:10px; margin:8px 0 }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', Arial, sans-serif; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: #333; min-height: 100vh; }
+        header { background: linear-gradient(135deg, #00137F 0%, #003d9a 100%); color: white; padding: 30px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        header h1 { font-size: 36px; letter-spacing: 2px; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .coaches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin: 40px 0; }
+        .coach-card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s; }
+        .coach-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .coach-name { color: #00137F; font-size: 22px; font-weight: bold; margin-bottom: 10px; }
+        .coach-spec { color: #FF1E1E; font-size: 14px; margin-bottom: 12px; font-weight: 600; }
+        .coach-rate { font-size: 20px; color: #FF1E1E; margin: 15px 0; font-weight: bold; }
+        .booking-form { margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 12px; color: #666; font-weight: 600; margin-bottom: 5px; text-transform: uppercase; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+        .book-btn { width: 100%; padding: 12px; background: linear-gradient(135deg, #FF1E1E 0%, #cc0000 100%); color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: opacity 0.3s; font-size: 14px; }
+        .book-btn:hover { opacity: 0.9; }
+        .nav-link { display: inline-block; margin-top: 30px; padding: 12px 30px; background: #00137F; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; transition: background 0.3s; }
+        .nav-link:hover { background: #003d9a; }
+        .empty-message { text-align: center; color: #999; font-size: 18px; padding: 60px 20px; }
     </style>
 </head>
 <body>
-    <h1>Coach Booking</h1>
-    {% if coaches %}
-        {% for c in coaches %}
-            <div class="coach">
-                <h3>{{ c.first_name }} {{ c.last_name }}</h3>
-                <p>Specialization: {{ c.specialization or 'General' }}</p>
-                <p>Rate: ₱{{ '%.2f'|format(c.hourly_rate) }}</p>
-
-                <form action="/book-session" method="POST">
-                    <input type="hidden" name="coach_id" value="{{ c.coach_id }}">
-                    <label>Date: <input type="date" name="session_date" required></label>
-                    <label>Time: <input type="time" name="session_time" required></label>
-                    <button type="submit">Book Session</button>
-                </form>
+    <header>
+        <h1>🧑‍🏫 BOOK A COACH</h1>
+    </header>
+    <div class="container">
+        {% if coaches %}
+            <div class="coaches-grid">
+                {% for c in coaches %}
+                    <div class="coach-card">
+                        <div class="coach-name">{{ c.first_name }} {{ c.last_name }}</div>
+                        <div class="coach-spec">{{ c.specialization or '✨ General Fitness' }}</div>
+                        <div class="coach-rate">₱{{ '%.2f'|format(c.hourly_rate) }}/hour</div>
+                        
+                        <form action="/book-session" method="POST" class="booking-form">
+                            <input type="hidden" name="coach_id" value="{{ c.coach_id }}">
+                            <div class="form-group">
+                                <label for="date-{{ c.coach_id }}">Session Date</label>
+                                <input type="date" id="date-{{ c.coach_id }}" name="session_date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time-{{ c.coach_id }}">Session Time</label>
+                                <input type="time" id="time-{{ c.coach_id }}" name="session_time" required>
+                            </div>
+                            <button type="submit" class="book-btn">Book Session</button>
+                        </form>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    {% else %}
-        <p>No coaches available right now.</p>
-    {% endif %}
-    <a href="/">Back to home</a>
+        {% else %}
+            <div class="empty-message">
+                <p>❌ No coaches available right now.</p>
+            </div>
+        {% endif %}
+        <a href="/" class="nav-link">← Back to Home</a>
+    </div>
 </body>
 </html>

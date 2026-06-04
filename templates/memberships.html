@@ -4,26 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/membership.css') }}">
-    <title>Memberships</title>
+    <title>Memberships - DIH GYM</title>
     <style>
-        .plan { border:1px solid #ccc; padding:12px; margin:8px 0; }
-        .plan h3 { margin:0 0 8px 0 }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', Arial, sans-serif; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: #333; min-height: 100vh; }
+        header { background: linear-gradient(135deg, #00137F 0%, #003d9a 100%); color: white; padding: 30px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        header h1 { font-size: 36px; letter-spacing: 2px; margin-bottom: 10px; }
+        header p { font-size: 16px; opacity: 0.9; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
+        .plan-card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s; border-top: 5px solid #FF1E1E; }
+        .plan-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .plan-card h3 { color: #00137F; font-size: 24px; margin-bottom: 15px; }
+        .plan-price { font-size: 32px; color: #FF1E1E; font-weight: bold; margin-bottom: 10px; }
+        .plan-duration { color: #666; font-size: 14px; margin-bottom: 15px; }
+        .plan-description { color: #666; line-height: 1.6; margin-bottom: 20px; min-height: 60px; }
+        .subscribe-btn { display: inline-block; width: 100%; padding: 15px; background: linear-gradient(135deg, #FF1E1E 0%, #cc0000 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center; transition: opacity 0.3s; border: none; cursor: pointer; font-size: 16px; }
+        .subscribe-btn:hover { opacity: 0.9; }
+        .nav-link { display: inline-block; margin-top: 30px; padding: 12px 30px; background: #00137F; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; transition: background 0.3s; }
+        .nav-link:hover { background: #003d9a; }
+        .empty-message { text-align: center; color: #999; font-size: 18px; padding: 60px 20px; }
     </style>
 </head>
 <body>
-    <h1>Membership Plans</h1>
-    {% if memberships %}
-        {% for m in memberships %}
-            <div class="plan">
-                <h3>{{ m.plan_name }} - ₱{{ '%.2f'|format(m.price) }}</h3>
-                <p>{{ m.description }}</p>
-                <p>Duration: {{ m.duration_days }} days</p>
-                <a href="/subscribe/{{ m.membership_id }}">Subscribe</a>
+    <header>
+        <h1>🏋️ MEMBERSHIP PLANS</h1>
+        <p>Choose your fitness journey with DIH GYM</p>
+    </header>
+    <div class="container">
+        {% if memberships %}
+            <div class="plans-grid">
+                {% for m in memberships %}
+                    <div class="plan-card">
+                        <h3>{{ m.plan_name }}</h3>
+                        <div class="plan-price">₱{{ '%.2f'|format(m.price) }}</div>
+                        <div class="plan-duration">{{ m.duration_days }} days</div>
+                        <p class="plan-description">{{ m.description or 'Premium fitness experience' }}</p>
+                        <a href="/subscribe/{{ m.membership_id }}" class="subscribe-btn">Subscribe Now</a>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    {% else %}
-        <p>No membership plans available.</p>
-    {% endif %}
-    <a href="/">Back to home</a>
+        {% else %}
+            <div class="empty-message">
+                <p>No membership plans available at this moment.</p>
+            </div>
+        {% endif %}
+        <a href="/" class="nav-link">← Back to Home</a>
+    </div>
 </body>
 </html>

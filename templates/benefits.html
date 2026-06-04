@@ -3,16 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benefits</title>
+    <title>Benefits - DIH GYM</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', Arial, sans-serif; background: #1a1a1a; color: #333; min-height: 100vh; }
+        header { background: linear-gradient(135deg, #00137F 0%, #003d9a 100%); color: white; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        header h1 { font-size: 32px; letter-spacing: 2px; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0; }
+        .benefit-card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+        .benefit-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .benefit-card h3 { color: #FF1E1E; font-size: 20px; margin-bottom: 12px; }
+        .benefit-card p { color: #666; line-height: 1.6; }
+        .nav-link { display: inline-block; margin-top: 30px; padding: 12px 30px; background: #FF1E1E; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; transition: background 0.3s; }
+        .nav-link:hover { background: #cc0000; }
+    </style>
 </head>
 <body>
-    <h1>Benefits</h1>
-    <ul>
-        <li>Access to all gym equipment</li>
-        <li>Free group classes for Premium members</li>
-        <li>Discounted personal training for VIP members</li>
-        <li>Flexible membership plans</li>
-    </ul>
-    <a href="/">Back to home</a>
-</body>
-</html>
+    <header>
+        <h1>💪 DIH GYM BENEFITS</h1>
+    </header>
+    <div class="container">
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3>🏋️ Gym Equipment</h3>
+                <p>Access to state-of-the-art fitness equipment including cardio machines, weight training stations, and functional training areas.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>👥 Group Classes</h3>
+                <p>Premium members enjoy unlimited access to high-energy group classes like yoga, pilates, HIIT, and spinning.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>👨‍🏫 Personal Training</h3>
+                <p>VIP members get discounted sessions with certified personal trainers tailored to your fitness goals.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>📅 Flexible Plans</h3>
+                <p>Choose from Basic, Premium, or VIP memberships with flexible billing cycles and no long-term contracts.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>🎖️ Member Community</h3>
+                <p>Join our supportive community of fitness enthusiasts and participate in challenges and events.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>📍 Multiple Locations</h3>
+                <p>Train at any of our convenient branches across Metro Manila with a single membership.</p>
+            </div>
+        </div>
+        <a href="/" class="nav-link">← Back to Home</a>
+    </div>
