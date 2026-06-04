@@ -1,0 +1,233 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Arial Black', 'Arial', sans-serif;
+}
+
+body, html {
+    background-color: #cbd1cc; /* Light gray base for the scrollable view */
+    scroll-behavior: smooth;
+}
+
+/* Color Accents */
+.brand-red { color: #e60000; }
+.brand-white { color: #ffffff; }
+
+/* Top Header Bar */
+.top-header {
+    height: 70px;
+    background-color: #020266;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.profile-icon svg {
+    width: 36px;
+    height: 36px;
+    fill: white;
+}
+
+/* Secondary Navigation Bar */
+.second_header {
+    height: 45px;
+    background-color: #a8aaa9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.second_header a {
+    color: #000;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.second_header a:hover {
+    color: #020266;
+}
+
+/* Hero Section */
+.main-section {
+    height: calc(100vh - 115px);
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
+               background: url('../images/gym_main_page.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+}
+
+.main-content {
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.main-title {
+    color: white;
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    line-height: 0.95;
+    font-weight: 900;
+}
+
+.cta-button {
+    background-color: #020266;
+    color: white;
+    padding: 12px 20px;
+    font-size: 11px;
+    font-weight: 900;
+    border-radius: 20px;
+    width: fit-content;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #040499;
+    transform: scale(1.03);
+}
+
+/* Lower Features & Branches Section */
+.features-section {
+    background-color: #cbd1cc;
+    padding: 80px 40px 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Features Cards Layout */
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+/* Entire card block as an anchor link container */
+.feature-card {
+    position: relative;
+    width: 320px;
+    height: 200px;
+    border-radius: 16px;
+    overflow: hidden; /* Clips the inner image zoom behavior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Background image element inside card for isolated animation transitions */
+.card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay darkness state */
+    transition: transform 0.4s ease, background-color 0.4s ease;
+    z-index: 1;
+}
+
+.feature-card h3 {
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2; /* Forces text to sit clean on top of the image */
+}
+
+/* Card Interaction Hover Effects */
+.feature-card:hover {
+    transform: translateY(-5px); /* Lifts card up slightly */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+
+.feature-card:hover .card-bg {
+    transform: scale(1.08); /* Scales background layout cleanly */
+    background-color: rgba(0, 0, 0, 0.25); /* Reveals more image light vibrancy */
+}
+
+/* Branches Info Layout */
+.branches-container {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.branches-title {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.branches-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.branch-item {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.branch-name {
+    font-size: 14px;
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.pin-icon {
+    font-size: 16px;
+}
+
+.branch-address {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #444;
+    line-height: 1.4;
+    font-weight: bold;
+    max-width: 240px;
+    margin: 0 auto;
+}
